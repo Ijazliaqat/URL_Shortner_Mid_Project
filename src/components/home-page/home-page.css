@@ -1,15 +1,30 @@
 
-.home-container{
-    display: flex;
-    justify-content: center;
+body {
+
+    background-color: whitesmoke;
 }
 
-.text-container{
-    /* width: 500px; */
-    
-}
-
-.table-data{
+.container {
+    height: 70vh;
     display: flex;
+    font-family: arial;
+    text-align: center;
     justify-content: center;
+    flex-direction: column;
+}
+.box {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: white;
+    border-radius: 0.1cm;
+    box-shadow: 5px 10px 18px #888888;
+}
+h1 {
+    font-weight: bold;
+    color: rgb(106, 104, 104);
+}
+.text-container {
+    width: 70%;
 }
