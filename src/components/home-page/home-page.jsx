@@ -14,14 +14,6 @@ const Homepage = () => {
   const [date, setDate] = React.useState(null);
   return (
   <>
-  {/* Header & Nav */}
-    <header>
-      <nav>
-        <a class="menu_btn" href="#" style={{fontSize:'25px', color:'white', fontFamily:'Verdana'}}>Short.ly</a>
-        <a class="menu_btn" href="#">Home</a> 
-        <a class="menu_btn" href="#">History</a>
-      </nav>
-    </header>
 
   {/* URL Input Generate Box */}
     <div className='container'>
