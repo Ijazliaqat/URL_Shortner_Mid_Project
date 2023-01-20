@@ -16,16 +16,15 @@ const History = () => {
 
   return (
     <div>
-      <Grid>
-        <Grid className='table-data' mx={60} mt={5}>
+        <Grid className='table-data' >
           <TableContainer  component={Paper}>
             <Table aria-label="simple table">
-              <TableHead>
+              <TableHead >
                 <TableRow>
-                  <TableCell>No.</TableCell>
-                  <TableCell align="right">Original URL</TableCell>
-                  <TableCell align="right">Short URL</TableCell>
-                  <TableCell align="right">Copy</TableCell>
+                  <TableCell sx={{fontWeight:"bold"}}>No.</TableCell>
+                  <TableCell sx={{fontWeight:"bold"}}>Original URL</TableCell>
+                  <TableCell sx={{fontWeight:"bold"}}>Short URL</TableCell>
+                  <TableCell sx={{fontWeight:"bold"}}>Copy</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -34,17 +33,16 @@ const History = () => {
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell align="right">{index + 1}</TableCell>
-                    <TableCell align="right">{data.originalURL}</TableCell>
-                    <TableCell align="right">{data.shortURL}</TableCell>
-                    <TableCell align="right">{data.btn}</TableCell>
+                    <TableCell >{index + 1}</TableCell>
+                    <TableCell >{data.originalURL}</TableCell>
+                    <TableCell >{data.shortURL}</TableCell>
+                    <TableCell >{data.btn}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
         </Grid>
-      </Grid>
     </div>
   )
 }

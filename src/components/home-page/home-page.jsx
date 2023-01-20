@@ -6,6 +6,44 @@ import './home-page.css'
 
 const Homepage = () => {
 
+
+
+// URL validation
+  const [inputURL, setInputURL] = useState();
+
+  const setValue = (event) => {
+    setInputURL(event.target.value);
+    console.log(inputURL);
+  }
+
+  const isValidUrl = urlString =>{
+    var inputElement = document.createElement('input');
+    inputElement.type = 'url';
+    inputElement.value = urlString;
+
+    if (!inputElement.checkValidity()) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+
+  const validate = () => {
+    if (inputURL === "") {
+      return setInputURL("You didnt type a URL !!");
+    } else if (!isValidUrl(inputURL)) {
+      return setInputURL("Not a URL"); 
+    } else {
+      console.log("a valid URL");
+    }
+    
+  }
+
+
+
+
+
   const [url, setUrl] = useState('');
 
   const urlData = [
@@ -54,10 +92,12 @@ const Homepage = () => {
           <Grid >
             <Grid>
               <TextField
+              value={inputURL}
+                onChange={setValue}
                 className='text-container'
                 placeholder='Enter Your URL'
               />
-              <Button sx={{ marginLeft: 1 }} variant="contained" color="primary">
+              <Button sx={{ marginLeft: 1 }} variant="contained" color="primary" onClick={validate}>
                 Generate</Button>
             </Grid>
 
