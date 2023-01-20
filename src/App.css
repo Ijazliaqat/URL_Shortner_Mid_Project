@@ -29,19 +29,7 @@
   background-color: blanchedalmond;
 }
 
-nav{
-  display: flex;
-  background-color:orange; 
-  font-size: large;   
-}
 
-nav a{
-  color: black;
-  padding: 15px 30px;
-  float: left;
-  display: block;
-  text-decoration: none;
-}
 
 @keyframes move {
   100% {
