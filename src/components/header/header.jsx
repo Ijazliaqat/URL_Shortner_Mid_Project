@@ -1,14 +1,17 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import './header.css';
+
+/*This is header component*/
 
 function Header() {
   return (
     <>
-    <nav>
-      <Link className='menu_btn' to="/" style={{fontSize:'25px', color:'white', fontFamily:'Verdana'}}>Short.ly</Link>
-      <Link className='menu_btn' to="/">Home</Link> 
-      <Link className='menu_btn' to="/history">History</Link>
-    </nav>
+      <nav >
+        <Link className="logo" to="/">Short.<span>ly</span></Link>
+        <Link className="header" to="/">Home</Link>
+        <Link className="header" to="/history">History</Link>
+      </nav>
     </>
   )
 }
