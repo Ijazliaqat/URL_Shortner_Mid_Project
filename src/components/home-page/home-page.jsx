@@ -48,55 +48,23 @@ const Homepage = () => {
 
   return (
     <>
-      <Grid mt={30} className='home-container'>
-        <Grid>
-          
-          <form onSubmit={formSubmitHandler}>
+    <div className='container'>
+      <div className='box'>
+        <h1 >Paste the URL to be shortened</h1>
+          <Grid >
+            <Grid>
+              <TextField
+                className='text-container'
+                placeholder='Enter Your URL'
+              />
+              <Button sx={{ marginLeft: 1 }} variant="contained" color="primary">
+                Generate</Button>
+            </Grid>
 
-            <TextField
-              value={url}
-              onChange={(e) => { setUrl(e.target.value) }}
-              className='text-container'
-              placeholder='Enter Your URL'
-            />
-        
-            <button type='submit' sx={{ marginLeft: 3 }} variant="contained" color="success">
-              Generate
-            </button>
-
-          </form>
-        </Grid>
-
-      </Grid>
-      <Grid>
-        <Grid className='table-data' mx={60} mt={5}>
-          <TableContainer component={Paper}>
-            <Table aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>No.</TableCell>
-                  <TableCell align="right">Original URL</TableCell>
-                  <TableCell align="right">Short URL</TableCell>
-                  <TableCell align="right">Copy</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {urlData.map((data, index) => (
-                  <TableRow
-                    key={index}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell align="right">{index + 1}</TableCell>
-                    <TableCell align="right">{data.originalURL}</TableCell>
-                    <TableCell align="right">{data.shortURL}</TableCell>
-                    <TableCell align="right">{data.btn}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Grid>
-      </Grid>
+          </Grid>
+          </div>
+      </div>
+      
     </>
   )
 }
