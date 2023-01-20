@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### in case if npm modules give error, install these libraries 
+npm i -s @date-io/dayjs@1.x dayjs
+// Install component (community version)
+npm install @mui/x-date-pickers
+// Install date library (if not already installed)
+npm install moment
