@@ -1,0 +1,15 @@
+
+.home-container{
+    display: flex;
+    justify-content: center;
+}
+
+.text-container{
+    /* width: 500px; */
+    
+}
+
+.table-data{
+    display: flex;
+    justify-content: center;
+}
