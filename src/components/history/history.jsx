@@ -1,3 +1,5 @@
+import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
+import { width } from '@mui/system';
 import React from 'react'
 import { useSelector } from 'react-redux'
 import AppTable from '../app-table/app-table'
@@ -8,8 +10,8 @@ const History = () => {
     <div>
         <AppTable urlsData={storeUrlData} />
         <Grid className='table-data' >
-          <TableContainer  component={Paper}>
-            <Table aria-label="simple table">
+          <TableContainer  sx={{height:150, width:700}} component={Paper}>
+            <Table sx={{height:"max-content"}} aria-label="simple table">
               <TableHead >
                 <TableRow>
                   <TableCell sx={{fontWeight:"bold"}}>No.</TableCell>
