@@ -2,7 +2,7 @@ nav{
     display: flex;
     background-color: rgb(61, 61, 124); 
     font-size: large;  
-    box-shadow: 10px 10px 25px 0 black; 
+    box-shadow: 0 0 20px 0 black; 
   }
 .header{
     color: white;
@@ -10,7 +10,6 @@ nav{
     font-weight: bold;
     float: left;
     display: block;
-    margin-top: auto;
     margin: 10px;
     text-decoration: none;
     transition: 0.3s;
@@ -18,7 +17,7 @@ nav{
 .header:hover{
     background-color: rgb(240, 240, 80);
     color: black;
-    border-radius: 100%;
+    border-radius: 10px;
   }
 span{
     color: wheat;

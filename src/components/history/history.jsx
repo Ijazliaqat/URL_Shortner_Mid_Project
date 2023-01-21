@@ -10,8 +10,8 @@ const History = (props) => {
 
   const {urlsData} = props;
   
-
   return (
+    
     <div>
         <Grid className='table-data' >
           <TableContainer  component={Paper}>
