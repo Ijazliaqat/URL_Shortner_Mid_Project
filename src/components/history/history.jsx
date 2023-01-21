@@ -1,4 +1,5 @@
 import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
+import { width } from '@mui/system';
 import React from 'react'
 import './history.css'
 
@@ -14,8 +15,8 @@ const History = (props) => {
     
     <div>
         <Grid className='table-data' >
-          <TableContainer  component={Paper}>
-            <Table aria-label="simple table">
+          <TableContainer  sx={{height:150, width:700}} component={Paper}>
+            <Table sx={{height:"max-content"}} aria-label="simple table">
               <TableHead >
                 <TableRow>
                   <TableCell sx={{fontWeight:"bold"}}>No.</TableCell>

@@ -52,7 +52,7 @@ const Homepage = () => {
 
   return (
     <>
-      <div className='container'>
+      <div className='container' >
         <div className='box'>
           <h1 >Paste the URL to be shortened</h1>
           <Grid >
