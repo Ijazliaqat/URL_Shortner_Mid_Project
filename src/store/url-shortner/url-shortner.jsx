@@ -9,7 +9,12 @@ export const shortnerSclice = createSlice({
     initialState,
     reducers: {
         shortenUrl: (state, action) => {
-            console.log(action, '🤣');
+            // console.log(action.payload, '🤣');
+            localStorage.setItem('shortURLS', JSON.stringify(action.payload))
+            const items = JSON.parse(localStorage.getItem('shortURLS'));
+
+            // console.log(items);
+            state.shortUrl = items
         }
     }
 })

@@ -4,7 +4,7 @@ import { Grid, TextField } from '@mui/material';
 import { Field, Formik, Form } from 'formik';
 import { useState } from 'react';
 import useHome from './use-home';
-import History from '../history/history';
+import History from '../app-table/app-table';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -16,8 +16,8 @@ const Homepage = () => {
 
   const { } = useHome();
 
-  // const {shortenUrl} = useSelector(state=>state.shortner)
-  // console.log(shortenUrl);
+  const storeUrlData = useSelector(state=>state.shortner.shortUrl)
+  console.log(storeUrlData, '👍');
 
   const dispatch = useDispatch();
 
@@ -26,11 +26,6 @@ const Homepage = () => {
   const [value, setValue] = useState(null);
 
   console.log(url);
-
-  // useEffect(()=>{
-  //   localStorage.setItem('shortURLs', JSON?.stringify(data))
-  // },[data]);
-  // console.log(data);
 
   const initialValue = {
     urlInput: ''
@@ -60,24 +55,15 @@ const Homepage = () => {
     const short = urlShortener(values.urlInput);
     const original = urlRedirector(short);
 
-    const urls = {
-      short,
-      original
-    }
+    const urls = {short, original }
 
     setData(current => [...current, urls]);
-    // localStorage.setItem('shortURLS', JSON.stringify(data))
-    
+   
   }
 
-  console.log(data);
   useEffect(() => {
     dispatch(shortenUrl(data))
   }, [data])
-  
-  // const items = JSON.parse(localStorage.getItem('shortURLS'));
-  // console.log(items);
-
   
 
   return (
@@ -120,7 +106,7 @@ const Homepage = () => {
               </Formik>
             </Grid>
 
-            <History urlsData={data} />
+            <History urlsData={storeUrlData} />
 
           </Grid>
         </div>
