@@ -21,7 +21,9 @@ const History = (props) => {
                   <TableCell sx={{fontWeight:"bold"}}>No.</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Original URL</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Short URL</TableCell>
+                  <TableCell sx={{fontWeight:"bold"}}>Expiry Date</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Copy</TableCell>
+
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -33,7 +35,10 @@ const History = (props) => {
                     <TableCell align="right">{index + 1}</TableCell>
                     <TableCell align="right">{data.original}</TableCell>
                     <TableCell align="right" ><a target='_blank' href={data.original}>{data.short}</a></TableCell>
-                    {/* <TableCell align="right">{data.btn}</TableCell> */}
+                    <TableCell align="right">{data.expiry}</TableCell>
+                    <TableCell align="right"><button onClick={ () => {
+                        navigator.clipboard.writeText(data.short);
+                        return alert("URL Copied");}}>Copy</button></TableCell> 
                   </TableRow>
                 ))}
               </TableBody>

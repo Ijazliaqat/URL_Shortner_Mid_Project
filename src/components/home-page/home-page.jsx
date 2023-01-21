@@ -44,7 +44,7 @@ const Homepage = () => {
 
     const urls = {
       short,
-      original
+      original,
     }
 
     setData(current => [...current, urls]);
