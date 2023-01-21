@@ -11,6 +11,7 @@ body {
     text-align: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 40px;
 }
 .box {
     padding-top: 10px;
@@ -25,9 +26,49 @@ h1 {
     font-weight: bold;
     color: rgb(54, 52, 52);
 }
-.text-container {
-    width: 70%;
-}
-.text-field{
+.input-field{
     height: 40px;
+    width: 400px;
+    font-size: medium;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: rgb(94, 94, 221);
+    border-radius: 10px;
+}
+.expiry-field{
+    height: 45px;
+    width: 150px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    border-color: rgb(94, 94, 221);
+    border-radius: 10px;
+}
+::-webkit-input-placeholder{
+    font-size: 17px;
+    font-weight: lighter;
+    margin-left: 40px;
+    color: #888888;
+}
+.button{
+    background-color: rgb(59, 59, 184);
+    color: white;
+    height: 30px;
+    width: 100px ;
+    border-color: white;
+    box-shadow: 0 0 5px 0 black;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: none;
+
+}
+.button:hover{
+    background-color: rgb(17, 164, 201);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    height: 30px;
+    width: 100px ;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: none;
 }
