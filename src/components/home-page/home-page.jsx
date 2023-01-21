@@ -56,6 +56,7 @@ const Homepage = () => {
               <TextField
                 className='text-container'
                 placeholder='Enter Your URL'
+                InputProps={{className: 'text-field'}}
               />
               <Button sx={{ marginLeft: 1 }} variant="contained" color="primary">
                 Generate</Button>

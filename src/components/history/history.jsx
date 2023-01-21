@@ -13,8 +13,8 @@ const History = () => {
       btn: <Button>Copy</Button>
     }];
   
-
   return (
+    
     <div>
       <Grid>
         <Grid className='table-data' mx={60} mt={5}>
@@ -22,8 +22,8 @@ const History = () => {
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>No.</TableCell>
-                  <TableCell align="right">Original URL</TableCell>
+                  <TableCell >No.</TableCell>
+                  <TableCell align="right" >Original URL</TableCell>
                   <TableCell align="right">Short URL</TableCell>
                   <TableCell align="right">Copy</TableCell>
                 </TableRow>

@@ -23,8 +23,11 @@ body {
 }
 h1 {
     font-weight: bold;
-    color: rgb(106, 104, 104);
+    color: rgb(54, 52, 52);
 }
 .text-container {
     width: 70%;
+}
+.text-field{
+    height: 40px;
 }
