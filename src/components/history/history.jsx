@@ -4,14 +4,11 @@ import './history.css'
 
 
 
-const History = () => {
+const History = (props) => {
 
-    //dummy data
-    const urlData = [{
-      originalURL: "https://contoursoftware.com",
-      shortURL: "Short.ly://abc",
-      btn: <Button>Copy</Button>
-    }];
+  console.log(props);
+
+  const {urlsData} = props;
   
 
   return (
@@ -29,15 +26,15 @@ const History = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {urlData.map((data, index) => (
+                {urlsData?.map((data, index) => (
                   <TableRow
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell align="right">{index + 1}</TableCell>
-                    <TableCell align="right">{data.originalURL}</TableCell>
-                    <TableCell align="right">{data.shortURL}</TableCell>
-                    <TableCell align="right">{data.btn}</TableCell>
+                    <TableCell align="right">{data.original}</TableCell>
+                    <TableCell align="right" ><a target='_blank' href={data.original}>{data.short}</a></TableCell>
+                    {/* <TableCell align="right">{data.btn}</TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>
