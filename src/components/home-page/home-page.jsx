@@ -1,70 +1,82 @@
+import React, { useEffect } from 'react';
 import { Button, Grid, TextField } from '@mui/material';
-import React from 'react'
+import { Field, Formik, Form } from 'formik';
 import { useState } from 'react';
-import { Form } from 'react-router-dom/dist';
-import './home-page.css'
+import useHome from './use-home';
+import './home-page.css';
+import History from '../history/history';
 
 const Homepage = () => {
+  
+  const { initialValue, SignupSchema } = useHome();
 
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState();
+  const [data, setData] = useState([]);
 
-  const urlData = [
-    {
-      originalURL: "https://contoursoftware.com",
-      shortURL: "Short.ly://abc",
-      btn: <Button>Copy</Button>
+  console.log(url);
+
+  // useEffect(()=>{
+  //   localStorage.setItem('shortURLs', JSON?.stringify(data))
+  // },[data]);
+  // console.log(data);
+
+  const formSubmitHandler = (values) => {
+    const obj = {};
+    console.log(obj);
+    const urlShortener = (longURL = '') => {
+      let shortURL = "short.ly/" + longURL.replace(/[^a-z]/g, '').slice(-4);
+      if (!obj[shortURL]) {
+        obj[shortURL] = longURL;
+      };
+      return shortURL;
     }
-  ];
-
-  const obj = {};
-  console.log(obj);
-  const urlShortener = (longURL = '') => {
-    let shortURL = "short.ly/" + longURL.replace(/[^a-z]/g, '').slice(-4);
-    if (!obj[shortURL]) {
-      obj[shortURL] = longURL;
+    const urlRedirector = (shortURL = '') => {
+      return obj[shortURL];
     };
-    return shortURL;
-  }
-  const urlRedirector = (shortURL = '') => {
-    return obj[shortURL];
-  };
 
 
-
-  //dummy data
-
-
-  const formSubmitHandler = (e) => {
-    e.preventDefault();
-
-
-    const short = urlShortener(url);
+    const short = urlShortener(values.url);
     const original = urlRedirector(short);
 
-    console.log(short);
-    // console.log(original);
-    
+    const urls = {
+      short,
+      original
+    }
+
+    setData(current => [...current, urls]);
   }
 
   return (
     <>
-    <div className='container'>
-      <div className='box'>
-        <h1 >Paste the URL to be shortened</h1>
+      <div className='container'>
+        <div className='box'>
+          <h1 >Paste the URL to be shortened</h1>
           <Grid >
             <Grid>
-              <TextField
-                className='text-container'
-                placeholder='Enter Your URL'
-              />
-              <Button sx={{ marginLeft: 1 }} variant="contained" color="primary">
-                Generate</Button>
+              <Formik
+                initialValues={initialValue}
+                validationSchema={SignupSchema}
+                onSubmit={formSubmitHandler}
+              >
+                {() => (
+                  <Form>
+                    <Field
+                      name='url'
+                      className='text-container'
+                    />
+                    <button type="submit">Submit</button>
+                  </Form>
+                )}
+
+              </Formik>
             </Grid>
 
+            <History urlsData={data} />
+
           </Grid>
-          </div>
+        </div>
       </div>
-      
+
     </>
   )
 }
