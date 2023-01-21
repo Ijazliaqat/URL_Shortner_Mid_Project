@@ -6,4 +6,9 @@ footer {
     right: 0;
     padding: 8px;
     text-align: center;
+    font-weight: bold;
+    height: 35gipx;
+  }
+  .text {
+    color: aliceblue;
   }
