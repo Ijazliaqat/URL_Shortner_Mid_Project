@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react';
-import { Button, Grid, TextField } from '@mui/material';
+import React from 'react';
+import * as Yup from 'yup';
+import { Grid, TextField } from '@mui/material';
 import { Field, Formik, Form } from 'formik';
 import { useState } from 'react';
 import useHome from './use-home';
-import * as Yup from 'yup';
 import History from '../history/history';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import './home-page.css';
+import { useDispatch } from 'react-redux';
+import { shortenUrl } from '../../store/url-shortner/url-shortner';
 
 const Homepage = () => {
 
   const { } = useHome();
+
+  const dispatch = useDispatch();
 
   const [url, setUrl] = useState();
   const [data, setData] = useState([]);
@@ -35,6 +39,7 @@ const Homepage = () => {
 
   const formSubmitHandler = (values) => {
     console.log(values);
+    dispatch(shortenUrl())
     const obj = {};
     console.log(obj);
     const urlShortener = (longURL = '') => {
