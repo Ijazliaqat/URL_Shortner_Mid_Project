@@ -5,6 +5,7 @@ import Header from "./components/header/header";
 import History from "./components/history/history";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Footer from "./components/footer/footer"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
         </Routes>
       </Router>
+      <Footer />
     </div>
   );
 }
