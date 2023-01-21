@@ -31,3 +31,7 @@ h1 {
 .text-field{
     height: 40px;
 }
+
+.error-color{
+    color: red;
+}

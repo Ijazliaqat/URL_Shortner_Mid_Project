@@ -3,15 +3,16 @@ import { Button, Grid, TextField } from '@mui/material';
 import { Field, Formik, Form } from 'formik';
 import { useState } from 'react';
 import useHome from './use-home';
-import './home-page.css';
+import * as Yup from 'yup';
 import History from '../history/history';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import './home-page.css';
 
 const Homepage = () => {
 
-  const { initialValue, SignupSchema } = useHome();
+  const { } = useHome();
 
   const [url, setUrl] = useState();
   const [data, setData] = useState([]);
@@ -24,7 +25,16 @@ const Homepage = () => {
   // },[data]);
   // console.log(data);
 
+  const initialValue = {
+    urlInput: ''
+  }
+
+  const urlSchema = Yup.object().shape({
+    urlInput: Yup.string().required('Please Enter Your')
+  });
+
   const formSubmitHandler = (values) => {
+    console.log(values);
     const obj = {};
     console.log(obj);
     const urlShortener = (longURL = '') => {
@@ -39,7 +49,7 @@ const Homepage = () => {
     };
 
 
-    const short = urlShortener(values.url);
+    const short = urlShortener(values.urlInput);
     const original = urlRedirector(short);
 
     const urls = {
@@ -48,7 +58,16 @@ const Homepage = () => {
     }
 
     setData(current => [...current, urls]);
+    localStorage.setItem('shortURLS', JSON.stringify(data))
+
   }
+
+  // useEffect(() => {
+  // }, [data])
+  
+  const items = JSON.parse(localStorage.getItem('shortURLS'));
+  console.log(items);
+  
 
   return (
     <>
@@ -59,15 +78,17 @@ const Homepage = () => {
             <Grid>
               <Formik
                 initialValues={initialValue}
-                validationSchema={SignupSchema}
+                validationSchema={urlSchema}
                 onSubmit={formSubmitHandler}
               >
-                {() => (
+                {({ errors, touched, values }) => (
                   <Form>
-                    <Field
-                      name='url'
-                      className='text-container'
-                    />
+                    <Grid>
+                      <Field name='urlInput' className='text-container' />
+                      <div >
+                        {errors.urlInput ? (<span className='error-color'>{errors.urlInput}</span>) : null}
+                      </div>
+                    </Grid>
                     <Grid>
 
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
