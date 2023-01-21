@@ -11,6 +11,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import './home-page.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { shortenUrl } from '../../store/url-shortner/url-shortner';
+import dayjs from 'dayjs';
 
 const Homepage = () => {
 
@@ -23,7 +24,9 @@ const Homepage = () => {
 
   const [url, setUrl] = useState();
   const [data, setData] = useState([]);
-  const [value, setValue] = useState(null);
+  const [expireDate, setExpireDate] = useState(null);
+
+  
 
   console.log(url);
 
@@ -92,9 +95,9 @@ const Homepage = () => {
                         <DatePicker
                           InputProps={{className: 'expiry-field'}}
                           label="Set Expiry"
-                          value={value}
+                          value={expireDate}
                           onChange={(newValue) => {
-                            setValue(newValue);
+                            setExpireDate(newValue);
                           }}
                           renderInput={(params) => <TextField {...params} />}
                         />
