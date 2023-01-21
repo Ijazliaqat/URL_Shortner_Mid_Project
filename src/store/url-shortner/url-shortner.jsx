@@ -7,12 +7,12 @@ const initialState = {
 export const shortnerSclice = createSlice({
     name: 'shortner',
     initialState,
-    reducers:{
-        shortenUrl : (state,action) =>{
-            console.log(state, '🤣');
+    reducers: {
+        shortenUrl: (state, action) => {
+            console.log(action, '🤣');
         }
     }
 })
 
-export const {shortenUrl} = shortnerSclice.actions
+export const { shortenUrl } = shortnerSclice.actions
 export default shortnerSclice.reducer

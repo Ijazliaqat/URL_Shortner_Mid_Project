@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import { Grid, TextField } from '@mui/material';
 import { Field, Formik, Form } from 'formik';
@@ -9,12 +9,15 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import './home-page.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { shortenUrl } from '../../store/url-shortner/url-shortner';
 
 const Homepage = () => {
 
   const { } = useHome();
+
+  // const {shortenUrl} = useSelector(state=>state.shortner)
+  // console.log(shortenUrl);
 
   const dispatch = useDispatch();
 
@@ -38,8 +41,8 @@ const Homepage = () => {
   });
 
   const formSubmitHandler = (values) => {
-    console.log(values);
-    dispatch(shortenUrl())
+    // console.log(values);
+    
     const obj = {};
     console.log(obj);
     const urlShortener = (longURL = '') => {
@@ -63,15 +66,18 @@ const Homepage = () => {
     }
 
     setData(current => [...current, urls]);
-    localStorage.setItem('shortURLS', JSON.stringify(data))
-
+    // localStorage.setItem('shortURLS', JSON.stringify(data))
+    
   }
 
-  // useEffect(() => {
-  // }, [data])
+  console.log(data);
+  useEffect(() => {
+    dispatch(shortenUrl(data))
+  }, [data])
   
-  const items = JSON.parse(localStorage.getItem('shortURLS'));
-  console.log(items);
+  // const items = JSON.parse(localStorage.getItem('shortURLS'));
+  // console.log(items);
+
   
 
   return (
