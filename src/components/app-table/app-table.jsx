@@ -14,14 +14,13 @@ const AppTable = (props) => {
     
     <div>
         <Grid className='table-data' >
-          <TableContainer  component={Paper}>
-            <Table aria-label="simple table">
+          <TableContainer  component={Paper} sx={{height:120,width:700}}>
+            <Table aria-label="simple table" sx={{height:"max-content"}}>
               <TableHead >
                 <TableRow>
                   <TableCell sx={{fontWeight:"bold"}}>No.</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Original URL</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Short URL</TableCell>
-                  <TableCell sx={{fontWeight:"bold"}}>Copy</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -30,10 +29,10 @@ const AppTable = (props) => {
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell align="right">{index + 1}</TableCell>
-                    <TableCell align="right">{data.original}</TableCell>
-                    <TableCell align="right" ><a target='_blank' href={data.original}>{data.short}</a></TableCell>
-                    {/* <TableCell align="right">{data.btn}</TableCell> */}
+                    <TableCell >{index + 1}</TableCell>
+                    <TableCell >{data.original}</TableCell>
+                    <TableCell  ><a target='_blank' href={data.original}>{data.short}</a></TableCell>
+                    {/* <TableCell >{data.btn}</TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>

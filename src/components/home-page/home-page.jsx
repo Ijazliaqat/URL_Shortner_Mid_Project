@@ -35,7 +35,7 @@ const Homepage = () => {
   }
 
   const urlSchema = Yup.object().shape({
-    urlInput: Yup.string().required('Please Enter Your')
+    urlInput: Yup.string().required('Please Enter Your URL')
   });
 
   const formSubmitHandler = (values) => {
@@ -84,8 +84,8 @@ const Homepage = () => {
                 {({ errors, touched, values }) => (
                   <Form>
                     <Grid>
-                      <Field name='urlInput' className='text-container' />
-                      <div >
+                      <Field name='urlInput' className='input-field' placeholder='Enter your URL'/>
+                      <div className='error-color'>
                         {errors.urlInput ? (<span className='error-color'>{errors.urlInput}</span>) : null}
                       </div>
                     </Grid>
