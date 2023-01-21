@@ -5,13 +5,17 @@ import { useState } from 'react';
 import useHome from './use-home';
 import './home-page.css';
 import History from '../history/history';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const Homepage = () => {
-  
+
   const { initialValue, SignupSchema } = useHome();
 
   const [url, setUrl] = useState();
   const [data, setData] = useState([]);
+  const [value, setValue] = useState(null);
 
   console.log(url);
 
@@ -64,6 +68,19 @@ const Homepage = () => {
                       name='url'
                       className='text-container'
                     />
+                    <Grid>
+
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker
+                          label="Basic example"
+                          value={value}
+                          onChange={(newValue) => {
+                            setValue(newValue);
+                          }}
+                          renderInput={(params) => <TextField {...params} />}
+                        />
+                      </LocalizationProvider>
+                    </Grid>
                     <button type="submit">Submit</button>
                   </Form>
                 )}
