@@ -6,6 +6,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AppTable from "./components/app-table/app-table";
 import History from "./components/history/history";
+import Footer from "./components/footer/footer"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
         </Routes>
       </Router>
+      <Footer />
     </div>
   );
 }

@@ -90,7 +90,8 @@ const Homepage = () => {
 
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
-                          label="Basic example"
+                          InputProps={{className: 'expiry-field'}}
+                          label="Set Expiry"
                           value={value}
                           onChange={(newValue) => {
                             setValue(newValue);
@@ -99,7 +100,7 @@ const Homepage = () => {
                         />
                       </LocalizationProvider>
                     </Grid>
-                    <button type="submit">Submit</button>
+                    <button className='button' type="submit">GENERATE</button>
                   </Form>
                 )}
 

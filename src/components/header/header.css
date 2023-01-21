@@ -15,7 +15,7 @@ nav{
     transition: 0.3s;
   }
 .header:hover{
-    background-color: rgb(240, 240, 80);
+    background-color: rgb(238, 176, 5);
     color: black;
     border-radius: 10px;
   }
