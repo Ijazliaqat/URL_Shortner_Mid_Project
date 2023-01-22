@@ -4,7 +4,6 @@ import { Grid, TextField } from "@mui/material";
 import { Field, Formik, Form } from "formik";
 import { useState } from "react";
 import useHome from "./use-home";
-import History from "../app-table/app-table";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -13,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { shortenUrl } from "../../store/url-shortner/url-shortner";
 import dayjs from "dayjs";
 import moment from "moment/moment";
+import AppTable from "../app-table/app-table";
 
 const Homepage = () => {
   const { URL } = useHome();
@@ -63,7 +63,14 @@ const Homepage = () => {
     const urls = { short, original, expireDate };
 
     setData((current) => [...current, urls]);
+
+    // localStorage.setItem("shortURLS", JSON.stringify(data));
+    // const items = JSON.parse(localStorage.getItem("shortURLS"));
+    // setUrl(items)
+    // dispatch(shortenUrl(items));
   };
+
+  console.log(url);
 
   useEffect(() => {
     dispatch(shortenUrl(data));
@@ -84,7 +91,11 @@ const Homepage = () => {
                 {({ errors, touched, values }) => (
                   <Form>
                     <Grid>
-                      <Field name="urlInput" className="input-field" placeholder='Enter your URL' />
+                      <Field
+                        name="urlInput"
+                        className="input-field"
+                        placeholder="Enter your URL"
+                      />
                       <div className="error-color">
                         {errors.urlInput ? (
                           <span className="error-color">{errors.urlInput}</span>
@@ -103,12 +114,9 @@ const Homepage = () => {
                               moment(newValue).format("MM-DD-YYYY")
                             );
                           }}
-                          renderInput={(params) => (
-                            <TextField {...params} />
-                          )}
+                          renderInput={(params) => <TextField {...params} />}
                         />
                       </LocalizationProvider>
-                      
                     </Grid>
                     <button className="button" type="submit">
                       GENERATE
@@ -118,7 +126,7 @@ const Homepage = () => {
               </Formik>
             </Grid>
 
-            <History urlsData={storeUrlData} />
+            <AppTable urlsData={storeUrlData} />
           </Grid>
         </div>
       </div>
