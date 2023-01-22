@@ -4,10 +4,10 @@ import * as Yup from 'yup';
 
 const useHome = () => {
 
-   
+    const URL = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
 
 
-    return {}
+    return {URL}
 }
 
 export default useHome

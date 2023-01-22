@@ -21,7 +21,7 @@ const AppTable = (props) => {
                   <TableCell sx={{fontWeight:"bold"}}>No.</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Original URL</TableCell>
                   <TableCell sx={{fontWeight:"bold"}}>Short URL</TableCell>
-                  <TableCell sx={{fontWeight:"bold"}}>Copy</TableCell>
+                  <TableCell sx={{fontWeight:"bold"}}>Expire Date</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -33,7 +33,7 @@ const AppTable = (props) => {
                     <TableCell align="right">{index + 1}</TableCell>
                     <TableCell align="right">{data.original}</TableCell>
                     <TableCell align="right" ><a target='_blank' href={data.original}>{data.short}</a></TableCell>
-                    {/* <TableCell align="right">{data.btn}</TableCell> */}
+                    <TableCell align="right">{data.expireDate}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
