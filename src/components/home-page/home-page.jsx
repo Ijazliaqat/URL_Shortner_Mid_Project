@@ -10,7 +10,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "./home-page.css";
 import { useDispatch, useSelector } from "react-redux";
 import { shortenUrl } from "../../store/url-shortner/url-shortner";
-import dayjs from "dayjs";
 import moment from "moment/moment";
 import AppTable from "../app-table/app-table";
 
