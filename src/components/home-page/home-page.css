@@ -28,10 +28,6 @@ h1 {
 }
 .input-field{
     height: 40px;
-}
-
-.error-color{
-    color: red;
     width: 400px;
     font-size: medium;
     margin-bottom: 15px;
@@ -75,4 +71,8 @@ h1 {
     border-radius: 10px;
     margin-top: 15px;
     border: none;
+}
+.error-color {
+   color: red;
+   margin-bottom: 5px;
 }
