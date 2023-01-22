@@ -1,15 +1,4 @@
-import {
-  Button,
-  Grid,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TextField,
-} from "@mui/material";
+import {Grid,Paper,Table,TableBody,TableCell,TableContainer, TableHead,TableRow,} from "@mui/material";
 import React from "react";
 import "./history.css";
 
@@ -21,14 +10,14 @@ const AppTable = (props) => {
   return (
     <div>
       <Grid className="table-data">
-        <TableContainer component={Paper} sx={{ height: 120, width: 700 }}>
+        <TableContainer component={Paper} sx={{ height: 150, width: 700 }}>
           <Table aria-label="simple table" sx={{ height: "max-content" }}>
             <TableHead>
               <TableRow>
                 <TableCell sx={{ fontWeight: "bold" }}>No.</TableCell>
                 <TableCell sx={{ fontWeight: "bold" }}>Original URL</TableCell>
                 <TableCell sx={{ fontWeight: "bold" }}>Short URL</TableCell>
-                <TableCell sx={{ fontWeight: "bold" }}>Expire Date</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Expiry Date</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
